@@ -2,6 +2,8 @@
 from django.http.response import HttpResponse
 from cminit import *
 from django.shortcuts import render,render_to_response
+from django.template.response import TemplateResponse
+from .models import *
 # Create your views here.
 def kuayu(response):
     response["Access-Control-Allow-Origin"] = "*"
@@ -30,6 +32,10 @@ def record(requset):
 
 def hello(requset):
 	# response = HttpResponse("hello") 
-	response = render_to_response("hello.html")
+	tmptab = Class.objects.filter(name = "main")
+	now = datetime.now()
+	helloTab = {"current_date": now, "imgPath": tmptab[0].photo.name}
+	print helloTab
+	response = render_to_response("hello.html", helloTab)
 	return response
     

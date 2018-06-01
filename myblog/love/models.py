@@ -6,7 +6,7 @@ import os
 class Class(models.Model):
 
     name = models.CharField(verbose_name=u'名称', max_length=64,default='')
-    photo    = models.ImageField(verbose_name=u'照片',upload_to='img', blank=True)
+    photo= models.ImageField(verbose_name=u'照片',upload_to='img', blank=True)
 
 class Subject(models.Model):
     name = models.CharField(verbose_name=u'科目', max_length=64,default='')
