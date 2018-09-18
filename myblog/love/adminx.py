@@ -13,4 +13,7 @@ class IDCardAdmin(object):
 
 xadmin.site.register(IDCard, IDCardAdmin)
 
+class ClassUmeng(object):
+    list_display = ('name', 'countTime')
 
+xadmin.site.register(Umeng, ClassUmeng)

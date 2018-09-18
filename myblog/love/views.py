@@ -39,3 +39,24 @@ def hello(requset):
 	response = render_to_response("hello.html", helloTab)
 	return response
     
+def countUmeng(requset):
+	print "---countUmeng---"
+	name = requset.GET.get('name', '')
+	desc = requset.GET.get('desc', '')
+	print name
+	print desc
+	finds = Umeng.objects.filter(name = name)
+	if len(finds) == 0:
+		record = Umeng(name = name, log = desc, countTime = 1)
+		record.save()
+	else:
+		find = finds[0]
+		find.name = name
+		find.desc = "why"
+		find.countTime = find.countTime + 1
+		find.save()
+	# print "--finds--"
+	# print finds
+	return HttpResponse("ok")
+	# cultday = abs(int(cultday)) + 1
+	# log = AndLog.objects.filter(only_id=tmp_onlyid)

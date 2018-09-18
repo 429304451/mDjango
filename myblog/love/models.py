@@ -38,4 +38,9 @@ class IDCard(models.Model):
     number = models.CharField(verbose_name=u'卡号', max_length=30,default='')
     student = models.OneToOneField(Students, verbose_name=u'学生')
 
+class Umeng(models.Model):
+    name = models.CharField(verbose_name=u'幽梦标题', max_length=64, default='default')
+    countTime = models.IntegerField(verbose_name=u'countTime', default = 1)
+    log = models.TextField(verbose_name=u'日志', blank=True, null=True)
+        
 
