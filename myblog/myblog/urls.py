@@ -22,5 +22,6 @@ urlpatterns = patterns('',
     url(r'^record', 'love.views.record'),
     url(r'^hello', 'love.views.hello'),
     url(r'^count', 'love.views.countUmeng'),
+    url(r'^mImg', 'love.views.mImg'),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

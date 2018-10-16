@@ -60,3 +60,11 @@ def countUmeng(requset):
 	return HttpResponse("ok")
 	# cultday = abs(int(cultday)) + 1
 	# log = AndLog.objects.filter(only_id=tmp_onlyid)
+
+def mImg(requset):
+	name = requset.GET.get('name', '')
+
+	imagepath = r'D:\xampp\htdocs\down\head\\'+name
+	image_data = open(imagepath, "rb").read()
+	response = HttpResponse(image_data,content_type="image/png")
+	return kuayu(response)
